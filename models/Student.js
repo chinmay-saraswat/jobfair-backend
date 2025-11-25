@@ -5,31 +5,27 @@ const studentSchema = new mongoose.Schema({
   fullName: { type: String, required: true },
   email: { type: String, required: true, unique: true },
 
-  phone: {
+  Contact: {
     type: String,
     required: true,
     validate: {
       validator: (v) => /^[0-9]{10}$/.test(v),
-      message: "Phone number must be exactly 10 digits"
+      message: "Contact number must be exactly 10 digits"
     }
   },
-
-  aadhar: {
+  collegeName: { type: String, required: true },
+  district:{type: String, required: true},
+  city:{type: String, required: true},
+  state:{type:String,required:true},
+  id: {
     type: String,
-    required: true,
     unique: true,
-    validate: {
-      validator: (v) => /^[0-9]{12}$/.test(v),
-      message: "Aadhar number must be exactly 12 digits"
-    }
   },
 
   courseName: { type: String, required: true },
-  collegeName: { type: String, required: true },
+  
   branch: { type: String, required: true },
-
- 
-
+  year:{type :String, required:true},
   passoutYear: { type: Number, required: true },
 
   studentCode: { type: String, unique: true },
