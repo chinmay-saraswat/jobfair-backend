@@ -2,8 +2,8 @@
 const mongoose = require("mongoose");
 
 const studentSchema = new mongoose.Schema({
-  fullName: { type: String, required: true },
-  email: { type: String, required: true, unique: true },
+  fullName: { type: String, required: [true, "Full name is required"] },
+  email: { type: String, required: [true, "Email is required"], unique: true },
 
   Contact: {
     type: String,
@@ -21,17 +21,14 @@ const studentSchema = new mongoose.Schema({
     default: undefined,
   },
 
-  collegeName: { type: String, required: true },
-  district: { type: String, required: true },
-  city: { type: String, required: true },
-  state: { type: String, required: true },
-
-  courseName: { type: String, required: true },
-
-  branch: { type: String, required: true },
-  year: { type: String, required: true },
-  passoutYear: { type: Number, required: true },
-
+  collegeName: { type: String, required: [true, "College name is required"] },
+  district: { type: String, required: [true, "District is required"] },
+  city: { type: String, required: [true, "City is required"] },
+  state: { type: String, required: [true, "State is required"] },
+  courseName: { type: String, required: [true, "Course name is required"] },
+  branch: { type: String, required: [true, "Branch is required"] },
+  year: { type: String, required: [true, "Year is required"] },
+  passoutYear: { type: Number, required: [true, "Passout year is required"] },
   studentCode: { type: String, unique: true },
   createdAt: { type: Date, default: Date.now },
 });
@@ -48,6 +45,5 @@ studentSchema.pre("save", async function (next) {
 
   next;
 });
-
 
 module.exports = mongoose.model("Student", studentSchema);

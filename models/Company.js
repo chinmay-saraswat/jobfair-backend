@@ -1,21 +1,19 @@
-// models/Company.js
 const mongoose = require("mongoose");
 
 const companySchema = new mongoose.Schema({
-  companyName: { type: String, required: true },
-  HRName: { type: String, required: true },
-  email: { type: String, required: true, unique: true },
-  Contact: { type: String, required: true },
-  address: { type: String },
+  companyName: { type: String, required: [true, "Company name is required"] },
+  HRName: { type: String, required: [true, "HR Name is required"] },
+  email: { type: String, required: [true, "Email is required"], unique: true },
+  Contact: { type: String, required: [true, "Contact number is required"] },
+  address: { type: String, required: [true, "Address is required"] },
 
-  // Multiple Job Positions (Role-wise salary + openings)
   jobRoles: [
     {
-      roleName: { type: String, required: true },
-      openings: { type: Number, required: true },
-      expectedSalary: { type: Number, required: true }, // Required field for each role
-      JobLocation : {type :String,required:true},
-      technologyFeild :{type:String,required:true}
+      roleName: { type: String, required: [true, "Role name is required"] },
+      openings: { type: Number, required: [true, "Openings count is required"] },
+      expectedSalary: { type: Number, required: [true, "Expected salary is required"] },
+      JobLocation: { type: String, required: [true, "Job location is required"] },
+      technologyFeild: { type: String, required: [true, "Technology field is required"] },
     }
   ],
 
