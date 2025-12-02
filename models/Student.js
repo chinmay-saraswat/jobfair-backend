@@ -46,13 +46,8 @@ studentSchema.pre("save", async function (next) {
     this.studentCode = `JOBFAIR-${String(count + 1).padStart(5, "0")}`;
   }
 
-  next();
+  next;
 });
-studentSchema.pre("save", function (next) {
-  if (this.id === "" || !this.id) {
-    this.id = { studentCode };
-  }
-  next();
-});
+
 
 module.exports = mongoose.model("Student", studentSchema);
