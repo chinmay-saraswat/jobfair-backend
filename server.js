@@ -17,7 +17,7 @@ app.use(express.json());
 connectDB();
 
 app.use("/api/student",studentRoutes);
-app.use("/api/company",companyRoutes);
+//app.use("/api/company",companyRoutes);
 
 app.get("/",(req,res)=>{
     res.send("Job Fair Backend Running...");
