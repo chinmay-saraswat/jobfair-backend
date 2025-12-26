@@ -2,7 +2,6 @@ const express = require("express");
 const Company = require("../models/Company");
 const router = express.Router();
 
-
 router.post("/register", async (req, res) => {
   try {
     const company = await Company.create(req.body);
@@ -25,4 +24,4 @@ router.post("/register", async (req, res) => {
   }
 });
 
-module.exports = router;  // <-- IMPORTANT
+module.exports = router; // <-- IMPORTANT
