@@ -16,7 +16,7 @@ app.use(express.json());
 
 connectDB();
 
-app.use("/api/student",studentRoutes);
+//app.use("/api/student",studentRoutes);
 app.use("/api/company",companyRoutes);
 
 app.get("/",(req,res)=>{
